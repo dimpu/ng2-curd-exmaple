@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+
+
+      <div class="row">
+
+        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+          <h3 class="panel-title">Users</h3>
+           </div>
+
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+          <a href="" class="btn btn-default pull-right" routerLink="/create">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+        </div>
+      </div>
+
+
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | async">
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td>
+            <a href="" class="btn" routerLink="/update/{{user.id}}">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a href="" class="btn" (click)="delete(user); $event.preventDefault();$event.stopPropagation();">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
